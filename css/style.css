@@ -362,7 +362,7 @@ header.container {
 }
 
 .button-modal {
-    display: inline-block;
+    display: flex;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -372,19 +372,12 @@ header.container {
     background-color: var(--white);
     margin-top: 8px;
     margin-right: 8px;
-}
-
-.button-modal .icon-close-black {
-    width: 18px;
-    height: 18px;
-    background-image: url("../images3/symbol-defs.svg#icon-close-black");
-    background-size: contain;
-
+    position: absolute;
 }
 
 .modal {
     display: flex;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -397,25 +390,20 @@ header.container {
 }
 
 .modal-close {
-    display: flex;
-    position: absolute;
-    top: 0px;
-    right: 0px;
     width: 18px;
     height: 18px;
-    transform: translate(-50%, -50%);
     background-color: var(--white);
     fill: var(--secondary-title-text-color);
 }
 
 .modal-link {
-    position: relative;
     background-color: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
+    background-size: contain;
 }
 
 /* ----------------------- НАШИ ОСОБЕННОСТИ --------------------- */
