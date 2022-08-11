@@ -355,6 +355,12 @@ header.container {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
 .button-modal {
     display: inline-block;
     width: 30px;
@@ -368,13 +374,13 @@ header.container {
     margin-right: 8px;
 }
 
-.button-modal>.icon-close-black {
+.button-modal .icon-close-black {
     width: 18px;
     height: 18px;
     background-image: url("../images3/symbol-defs.svg#icon-close-black");
     background-size: contain;
-}
 
+}
 
 .modal {
     display: flex;
@@ -390,12 +396,7 @@ header.container {
     border-radius: 4px;
 }
 
-.backdrop.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.modal.close {
+.modal-close {
     display: flex;
     position: absolute;
     top: 0px;
@@ -407,7 +408,7 @@ header.container {
     fill: var(--secondary-title-text-color);
 }
 
-.modal link {
+.modal-link {
     position: relative;
     background-color: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.1);
