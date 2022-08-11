@@ -752,6 +752,7 @@ section {
     font-size: 18px;
     line-height: 1.56;
     letter-spacing: 0.03em;
+    text-align: start;
     color: var(--white);
 }
 
