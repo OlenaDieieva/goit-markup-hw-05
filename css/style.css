@@ -130,13 +130,8 @@ header.container {
     border-radius: 2px;
     background: var(--accent-color);
     left: 0px;
-    bottom: 0px;
-    transition: widtht;
-    transition-duration: 250ms var(--timing-function);
-}
-
-.link.current:hover:after .link.current:focus::after {
-    width: 0%;
+    bottom: -1px;
+    transition: background 250ms var(--timing-function), color 250ms var(--timing-function);
 }
 
 .link:hover,
@@ -150,6 +145,7 @@ header.container {
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--primary-text-color);
+    transition: color 250ms var(--timing-function);
 }
 
 /* -----------------------------Контакты----------------------------- */
@@ -179,14 +175,12 @@ header.container {
     letter-spacing: 0.02em;
     color: var(--title-text-color);
     fill: currentColor;
-    transform: color, scale(1);
-    transition: transform 250ms var(--timing-function);
+    transition: color 250ms var(--timing-function);
 }
 
 .email:hover,
 .email:focus {
     color: var(--accent-color);
-    transform: color(red), scale(0. 5);
 }
 
 .icon-envelope {
@@ -200,7 +194,9 @@ header.container {
 }
 
 .tel {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-top: 32px;
     padding-bottom: 32px;
     font-weight: 500;
@@ -209,6 +205,7 @@ header.container {
     letter-spacing: 0.02em;
     color: var(--title-text-color);
     fill: currentColor;
+    transition: color 250ms var(--timing-function);
 }
 
 .tel:hover,
@@ -245,7 +242,6 @@ header.container {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    outline: 1px solid black;
 }
 
 .hero-title {
@@ -287,9 +283,10 @@ header.container {
     background-color: var(--accent-color);
     border: none;
     border-radius: 4px;
+    transition: background-color 250ms var(--timing-function), color 250ms var(--timing-function);
 }
 
-/*------------------------ ФИЛЬТР РАБОТ ------------------------- */
+/*----------------- ФИЛЬТР РАБОТ-Портфолио ------------------ */
 
 .button {
     gap: 8px;
@@ -320,7 +317,6 @@ header.container {
     color: var(--white);
     background-color: var(--accent-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
 }
 
 .btn-group {
@@ -344,8 +340,7 @@ header.container {
     border: 1px solid transparent;
     color: var(--primary-text-color);
     background-color: var(--secondary-background-color);
-    transition: background-color, border-radius;
-    transition-duration: 250ms var(--timing-function);
+    transition: color 250ms var(--timing-function), background-color 250ms var(--timing-function);
 }
 
 .btn-group:nth-last-child(3) {
@@ -371,7 +366,7 @@ header.container {
 
 .modal {
     display: flex;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     width: 528px;
@@ -382,17 +377,7 @@ header.container {
     border-radius: 4px;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
-    transition: transform 250ms var(--timing-function);
-}
-
-.modal-link {
-    background-color: var(--white);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    display: flex;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
+    transition: transform 250ms var(--timing-function), opacity 250ms var(--timing-function), visibility 250ms var(--timing-function);
 }
 
 .backdrop.is-hidden .modal {
@@ -591,18 +576,14 @@ section {
     border: 1px solid #AFB1B8;
     border-radius: 4px;
     fill: currentColor;
+    color: var(--grey);
+    transition: color 250ms var(--timing-function);
 }
 
 .clients-link:hover,
 .clients-link:focus {
     border: 1px solid var(--accent-color);
     background-color: var(--white);
-    fill: var(--accent-color);
-}
-
-.clients-logo {
-    align-items: center;
-    justify-content: center;
     fill: var(--grey);
 }
 
@@ -704,13 +685,15 @@ section {
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    fill: var(--grey);
+    fill: currentColor;
+    color: var(--grey);
+    transition: color 2500ms var(--timing-function), background-color 2500ms var(--timing-function);
 }
 
 .social-net.link:hover,
 .social-net.link:focus {
     background-color: var(--accent-color);
-    fill: var(--white);
+    color: var(--white);
 }
 
 /*-------------------------- ГАЛЕРЕЯ ----------------------------- */
@@ -778,6 +761,7 @@ section {
 .photo {
     display: block;
     text-decoration: none;
+    transition: box-shadow 250ms var(--timing-function);
 }
 
 .photo:hover,
@@ -785,7 +769,7 @@ section {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
-.galery-overlay {
+.galery-overlay-text {
     position: absolute;
     top: 0;
     left: 0;
@@ -795,12 +779,14 @@ section {
     transform: translateY(100%);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     padding: 63px 24px;
+}
+
+.galery-overlay {
     font-weight: 400;
     font-size: 18px;
     line-height: 1.56;
     letter-spacing: 0.03em;
     text-align: start;
-    color: var(--white);
 }
 
 .galery-picture {
@@ -808,8 +794,8 @@ section {
     overflow: hidden;
 }
 
-.photo:hover .galery-overlay,
-.photo:focus .galery-overlay {
+.photo:hover .galery-overlay-text,
+.photo:focus .galery-overlay-text {
     transform: translateY(0%);
 }
 
@@ -861,6 +847,7 @@ section {
     font-size: 14px;
     line-height: 1.7;
     color: var(--white);
+    transition: color 250ms var(--timing-function);
 }
 
 .email-item:hover,
@@ -873,6 +860,7 @@ section {
     font-size: 14px;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.6);
+    transition: color 250ms var(--timing-function);
 }
 
 .tel-item:hover,
@@ -885,6 +873,7 @@ section {
     font-size: 14px;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.6);
+    transition: color 250ms var(--timing-function);
 }
 
 footer.container {
@@ -934,6 +923,8 @@ footer.container {
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.1);
     fill: currentColor;
+    color: var(--white);
+    transition: background-color 250ms var(--timing-function);
 }
 
 .join-icon {
